@@ -1,6 +1,5 @@
 package com.svalero.restaurant.domain;
 
-
 public class User {
 
     private int id;
