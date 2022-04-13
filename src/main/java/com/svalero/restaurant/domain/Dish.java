@@ -6,9 +6,11 @@ import java.util.List;
 public class Dish {
 
     private int id;
-    private String title;
-    private String author;
-    private String publisher;
+    private String name;
+    private String restaurant;
+    private String type;
+    private Double price;
+
 
     private List<Order> orders;
 
@@ -16,10 +18,11 @@ public class Dish {
         orders = new ArrayList<>();
     }
 
-    public Dish(String title, String author, String publisher) {
-        this.title = title;
-        this.author = author;
-        this.publisher = publisher;
+    public Dish(String name, String restaurant, String type, Double price) {
+        this.name = name;
+        this.restaurant = restaurant;
+        this.type = type;
+        this.price = price;
         orders = new ArrayList<>();
     }
 
@@ -31,27 +34,35 @@ public class Dish {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getRestaurant() {
+        return restaurant;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setRestaurant(String restaurant) {
+        this.restaurant = restaurant;
     }
 
-    public String getPublisher() {
-        return publisher;
+    public String getType() {
+        return type;
     }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }

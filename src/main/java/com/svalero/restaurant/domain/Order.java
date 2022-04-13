@@ -12,7 +12,6 @@ public class Order {
     private String code;
     private boolean paid;
     private LocalDate date;
-
     private User user;
     private List<Dish> dishes;
 
@@ -59,11 +58,18 @@ public class Order {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+    public User getUser() {
+        return user;
+    }
 
-    @Override
-    public String toString() {
-        return "Código: " + code + "\n" +
-                "Pagado: " + paid + "\n" +
-                "Fecha: " + DateUtils.formatLocalDate(date);
+    public void setUser(User user) {
+        this.user = user;
+    }
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 }

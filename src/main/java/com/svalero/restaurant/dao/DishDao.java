@@ -19,15 +19,15 @@ public class DishDao {
     }
 
     public void add(Dish dish) throws SQLException, DishAlreadyExistException {
-        if (existBook(dish.getTitle()))
+        if (existBook(dish.getName()))
             throw new DishAlreadyExistException();
 
         String sql = "INSERT INTO dishes (title, author, publisher) VALUES (?, ?, ?)";
 
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, dish.getTitle());
-        statement.setString(2, dish.getAuthor());
-        statement.setString(3, dish.getPublisher());
+        statement.setString(1, dish.getName());
+        statement.setString(2, dish.getRestaurant());
+        statement.setString(3, dish.getType());
         statement.executeUpdate();
     }
 
@@ -45,9 +45,9 @@ public class DishDao {
         String sql = "UPDATE dishes SET title = ?, author = ?, publisher = ? WHERE title = ?";
 
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, dish.getTitle());
-        statement.setString(2, dish.getAuthor());
-        statement.setString(3, dish.getPublisher());
+        statement.setString(1, dish.getName());
+        statement.setString(2, dish.getRestaurant());
+        statement.setString(3, dish.getType());
         statement.setString(4, title);
         int rows = statement.executeUpdate();
         return rows == 1;
@@ -61,9 +61,9 @@ public class DishDao {
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
             Dish dish = new Dish();
-            dish.setTitle(resultSet.getString("title"));
-            dish.setAuthor(resultSet.getString("author"));
-            dish.setPublisher(resultSet.getString("publisher"));
+            dish.setName(resultSet.getString("title"));
+            dish.setRestaurant(resultSet.getString("author"));
+            dish.setType(resultSet.getString("publisher"));
             dishes.add(dish);
         }
 
@@ -80,9 +80,9 @@ public class DishDao {
         if (resultSet.next()) {
             dish = new Dish();
             dish.setId(resultSet.getInt("id"));
-            dish.setTitle(resultSet.getString("title"));
-            dish.setAuthor(resultSet.getString("author"));
-            dish.setPublisher(resultSet.getString("publisher"));
+            dish.setName(resultSet.getString("title"));
+            dish.setRestaurant(resultSet.getString("author"));
+            dish.setType(resultSet.getString("publisher"));
         }
 
         return Optional.ofNullable(dish);
