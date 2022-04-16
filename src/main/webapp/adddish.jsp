@@ -33,16 +33,20 @@
         <h2>Registro de un Plato</h2>
         <form>
             <div class="mb-2">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input name="nombre" type="text" class="form-control w-25" id="name">
+                <label for="dname" class="form-label">Nombre</label>
+                <input name="dname" type="text" class="form-control w-25" id="name">
             </div>
             <div class="mb-3">
-                <label for="restaurante" class="form-label">Restaurante</label>
-                <input name="restaurante" type="text" class="form-control w-25" id="restaurant">
+                <label for="ID_restaurant" class="form-label">ID Restaurante (WIP)</label>
+                <input name="ID_restaurant" type="text" class="form-control w-25" id="restaurant">
             </div>
             <div class="mb-2">
-                <label for="tipo" class="form-label">Tipo</label>
-                <input name="tipo" type="text" class="form-control w-25" id="type">
+                <label for="dtype" class="form-label">Tipo</label>
+                <input name="dtype" type="text" class="form-control w-25" id="type">
+            </div>
+             <div class="mb-2">
+                <label for="price" class="form-label">Precio</label>
+                <input name="price" type="text" class="form-control w-25" id="price">
             </div>
             <button type="submit" class="btn btn-primary">Registrar</button>
         </form>
