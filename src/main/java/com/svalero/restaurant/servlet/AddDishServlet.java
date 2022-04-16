@@ -27,22 +27,22 @@ public class AddDishServlet extends HttpServlet {
             response.sendRedirect("accesonopermitido.jsp");
         }
 
-        String title = request.getParameter("title");       // input name="title" del formulario
-        String author = request.getParameter("author");
-        String publisher = request.getParameter("publisher");
+        String name = request.getParameter("dname");       // input name="title" del formulario
+        String restaurant = request.getParameter("ID_restaurant");
+        String type = request.getParameter("dtype");
         String price = request.getParameter("price");
-        Dish dish = new Dish(title, author, publisher, price);
-
+        Dish dish = new Dish(name, restaurant, type, price);
+//TODO "cambiar" ID restaurant a restaurant
         Database database = new Database();
-        DishDao bookDao = new DishDao(database.getConnection());
+        DishDao dishDao = new DishDao(database.getConnection());
         try {
-            bookDao.add(dish);
-            out.println("<div class='alert alert-success' role='alert'>El libro se ha registrado correctamente</div>");
-        } catch (DishAlreadyExistException baee) {
-            out.println("<div class='alert alert-danger' role='alert'>El libro ya existe en la base de datos</div>");
-            baee.printStackTrace();
+            dishDao.add(dish);
+            out.println("<div class='alert alert-success' role='alert'>El plato se ha registrado correctamente</div>");
+        } catch (DishAlreadyExistException daee) {
+            out.println("<div class='alert alert-danger' role='alert'>El plato ya existe en la base de datos</div>");
+            daee.printStackTrace();
         } catch (SQLException sqle) {
-            out.println("<div class='alert alert-danger' role='alert'>Se ha producido un error al registrar el libro</div>");
+            out.println("<div class='alert alert-danger' role='alert'>Se ha producido un error al registrar el Plato</div>");
             sqle.printStackTrace();
         }
     }
