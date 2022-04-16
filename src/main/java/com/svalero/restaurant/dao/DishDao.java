@@ -32,11 +32,11 @@ public class DishDao {
         statement.executeUpdate();
     }
 
-    public boolean delete(String name) throws SQLException {
-        String sql = "DELETE FROM dishes WHERE Dname = ?";
+    public boolean delete(String id) throws SQLException {
+        String sql = "DELETE FROM dishes WHERE ID_dish = ?";
 
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, name);
+        statement.setString(1, id);
         int rows = statement.executeUpdate();
 
         return rows == 1;

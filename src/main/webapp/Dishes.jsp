@@ -32,15 +32,15 @@
                           <li class="list-group-item">
                             <a target="_blank" href="dish.jsp?id_dish=<%= dish.getId() %>"><%= dish.getName() %></a>
                             <%
-                                //if ((currentUser != null) && (currentUser.getRole().equals("DEV"))) {
+                                if ((currentUser != null) && (currentUser.getRole().equals("DEV"))) {
                             %>
-                                    <a href="delete-dish?id=<%= dish.getId() %>" class="btn btn-outline-danger">Eliminar</a>
+                                    <a target="_blank" href="delete-dish?id=<%= dish.getId() %>" class="btn btn-outline-danger">Eliminar</a>
                             <%
                                 }
                             %>
                         </li>
             <%
-                    //}
+                    }
                } catch (SQLException sqle) {
                  sqle.printStackTrace();
             %>
