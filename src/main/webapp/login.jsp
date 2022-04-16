@@ -39,7 +39,7 @@
 
 <main class="form-signin">
   <form method="post" action="login">
-    <img class="mb-4" src="images/logo.png">
+    <img class="mb-4 logo" src="images/logo.png" style=>
     <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
 
     <div class="form-floating">
