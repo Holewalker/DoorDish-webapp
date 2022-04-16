@@ -16,19 +16,20 @@ public class UserDao {
         this.connection = connection;
     }
 
-    // TODO Controlar las mismas excepciones que para el caso de DishDao.add()
+
     public void add(User user) throws SQLException {
-        String sql = "INSERT INTO users (name, username, password) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO users (uname, username, upassword, urole) VALUES (?, ?, ?, ?)";
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, user.getName());
         statement.setString(2, user.getUsername());
         statement.setString(3, user.getPassword());
+        statement.setString(4, "USER");
         statement.executeUpdate();
     }
 
-    public Optional<User> getUser(String username, String password) throws SQLException {
-        String sql = "SELECT * FROM users WHERE username = ? AND password = SHA1(?)";
+    public Optional<User> login(String username, String password) throws SQLException {
+        String sql = "SELECT * FROM users WHERE username = ? AND upassword = ?";
         User user = null;
 
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -37,14 +38,14 @@ public class UserDao {
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
             user = new User();
-            user.setId(resultSet.getInt("id"));
-            user.setName(resultSet.getString("name"));
+            user.setId(resultSet.getInt("id_user"));
+            user.setName(resultSet.getString("uname"));
             user.setUsername(resultSet.getString("username"));
-            user.setPassword(resultSet.getString("password"));
+            user.setPassword(resultSet.getString("upassword"));
+            user.setRole(resultSet.getString("urole"));
         }
 
         return Optional.ofNullable(user);
     }
 
-    // TODO Terminar de hacer el resto de métodos de este DAO: modifyUser, deleteUser, getUsers, . . . .
 }

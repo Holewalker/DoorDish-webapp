@@ -8,7 +8,7 @@ public class TestDish {
     String name = "TestPlato";
     String restaurant = "TestRestaurante";
     String type = "Vegetariano";
-    Double price = 10.5;
+    String price = "10.5";
     Dish dish = new Dish(name, restaurant, type, price);
 
     @Test

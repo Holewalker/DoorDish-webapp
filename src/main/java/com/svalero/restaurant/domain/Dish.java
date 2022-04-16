@@ -9,7 +9,7 @@ public class Dish {
     private String name;
     private String restaurant;
     private String type;
-    private Double price;
+    private String price;
 
 
     private List<Order> orders;
@@ -18,7 +18,7 @@ public class Dish {
         orders = new ArrayList<>();
     }
 
-    public Dish(String name, String restaurant, String type, Double price) {
+    public Dish(String name, String restaurant, String type, String price) {
         this.name = name;
         this.restaurant = restaurant;
         this.type = type;
@@ -58,11 +58,11 @@ public class Dish {
         this.type = type;
     }
 
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

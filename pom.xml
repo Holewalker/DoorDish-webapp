@@ -7,7 +7,7 @@
     <groupId>com.svalero</groupId>
     <artifactId>Restaurant_AA</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>Restaurant_AA Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
