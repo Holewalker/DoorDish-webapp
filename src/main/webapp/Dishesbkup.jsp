@@ -23,7 +23,7 @@
 <body>
     <div class="container">
         <h2>Listado de Platos</h2>
-        <div class="list-group">
+        <ul class="list-group">
             <%
                 // Acceder a la base de datos y recuperar la información de los libros
                 Database database = new Database();
@@ -41,22 +41,32 @@
 
 
             %>
+                          <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <a target="_blank" href="dish.jsp?id_dish=<%= dish.getId() %>"><%= dish.getName() %></a>
 
-                 <div class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <a target="_blank" href="dish.jsp?id_dish=<%= dish.getId() %>">
-                            <h5 class="mb-1"> <%= dish.getName() %></h5>
-                                <% if ((currentUser != null) && (currentUser.getRole().equals("DEV"))) { %>
-                                    <small>
-                                        <a target="_blank" href="delete-dish?id=<%= dish.getId() %>" class="btn btn-outline-danger">Eliminar</a>
-                                    </small>
-                                <% } %>
-                        </a>
-                    </div>
-                    <small>
-                        <a target="_blank" href="restaurant.jsp?id_restaurant=<%= dish.getRestaurant() %>"><%= restaurant.getName()%></a>
-                    </small>
-            </div>
+                            <a target="_blank" href="restaurant.jsp?id_restaurant=<%= dish.getRestaurant() %>">
+                            <%= restaurant.getName()%></a>
+                            <%
+                                if ((currentUser != null) && (currentUser.getRole().equals("DEV"))) {
+                            %>
+                                  <span class="tab"></span>  <a target="_blank" href="delete-dish?id=<%= dish.getId() %>" class="btn btn-outline-danger">Eliminar</a>
+                            <%
+                                }
+                            %>
+                        </li>
+
+                         <li class="list-group-item list-group-item-action flex-column align-items-start">
+                            <a target="_blank" href="dish.jsp?id_dish=<%= dish.getId() %>"> <%= dish.getName() %></a>
+                            <a target="_blank" href="restaurant.jsp?id_restaurant=<%= dish.getRestaurant() %>">
+                            <%= restaurant.getName()%></a>
+                        <%
+                            if ((currentUser != null) && (currentUser.getRole().equals("DEV"))) {
+                        %>
+                            <a target="_blank" href="delete-dish?id=<%= dish.getId() %>" class="btn btn-outline-danger">Eliminar</a>
+                        <%
+                            }
+                        %>
+                    </li>
             <%
                     }
                } catch (SQLException sqle) {
@@ -68,7 +78,7 @@
             <%
                }
             %>
-        </div>
+        </ul>
     </div>
 </body>
 </html>

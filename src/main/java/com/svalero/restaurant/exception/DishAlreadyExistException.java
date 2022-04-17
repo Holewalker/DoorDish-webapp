@@ -7,6 +7,6 @@ public class DishAlreadyExistException extends Exception {
     }
 
     public DishAlreadyExistException() {
-        super("El libro ya existe");
+        super("El plato ya existe");
     }
 }

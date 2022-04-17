@@ -19,7 +19,7 @@ public class DishDao {
     }
 
     public void add(Dish dish) throws SQLException, DishAlreadyExistException {
-        if (existBook(dish.getName()))
+        if (existDish(dish.getName()))
             throw new DishAlreadyExistException();
 
         String sql = "INSERT INTO dishes (Dname, id_restaurant, dtype, price) VALUES (?, ?, ?, ?)";
@@ -131,8 +131,8 @@ public class DishDao {
         return dish;
     }
 
-    private boolean existBook(String name) throws SQLException {
-        Optional<Dish> book = findByName(name);
-        return book.isPresent();
+    private boolean existDish(String name) throws SQLException {
+        Optional<Dish> dish = findByName(name);
+        return dish.isPresent();
     }
 }

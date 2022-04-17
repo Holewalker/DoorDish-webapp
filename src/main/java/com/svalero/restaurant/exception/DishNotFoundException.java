@@ -7,6 +7,6 @@ public class DishNotFoundException extends Exception {
     }
 
     public DishNotFoundException() {
-        super("El libro no existe");
+        super("El plato no existe");
     }
 }
