@@ -1,6 +1,8 @@
 <%@ page import="com.svalero.restaurant.dao.Database" %>
 <%@ page import="com.svalero.restaurant.dao.DishDao" %>
 <%@ page import="com.svalero.restaurant.domain.Dish" %>
+<%@ page import="com.svalero.restaurant.domain.Restaurant" %>
+<%@ page import="com.svalero.restaurant.dao.RestaurantDao" %>
 <%@ page import="java.util.Optional" %>
 <%@ page import="java.sql.SQLException" %>
 
@@ -13,10 +15,18 @@
         String dishId = request.getParameter("id_dish");
         Database db = new Database();
         DishDao dishDao = new DishDao(db.getConnection());
+        RestaurantDao restaurantDao = new RestaurantDao(db.getConnection());
         Dish dish = null;
+        Restaurant restaurant = null;
+        String restaurantId = "0";
+
+
         try {
             Optional<Dish> optionalDish = dishDao.findById(Integer.parseInt(dishId));
             dish = optionalDish.get();
+            restaurantId = dish.getRestaurant();
+            Optional<Restaurant> optionalRestaurant = restaurantDao.findById(restaurantId);
+            restaurant = optionalRestaurant.get();
 
     %>
     <div class="container">
@@ -26,7 +36,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title"><%= dish.getName() %></h5>
-            <p class="card-text">Servido por <strong><%= dish.getRestaurant() %></strong></p>
+            <p class="card-text">Servido por <strong><%= restaurant.getName() %></strong></p>
             <a href="buy?id=<%= dish.getId() %>" class="btn btn-primary">Pedir</a>
           </div>
           <div class="card-footer text-muted">
