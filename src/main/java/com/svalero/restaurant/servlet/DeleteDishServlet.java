@@ -25,7 +25,7 @@ public class DeleteDishServlet extends HttpServlet {
             response.sendRedirect("accesonopermitido.jsp");
         }
 
-        // TODO Eliminar el libro cuyo id se para como parametro
+  
 
 
         String id = request.getParameter("id");

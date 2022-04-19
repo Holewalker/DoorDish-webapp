@@ -32,7 +32,7 @@ public class AddDishServlet extends HttpServlet {
         String type = request.getParameter("dtype");
         String price = request.getParameter("price");
         Dish dish = new Dish(name, restaurant, type, price);
-//TODO "cambiar" ID restaurant a restaurant
+
         Database database = new Database();
         DishDao dishDao = new DishDao(database.getConnection());
         try {
