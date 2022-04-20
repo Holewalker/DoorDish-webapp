@@ -40,7 +40,6 @@
                     Optional<Restaurant> optionalRestaurant = restaurantDao.findById(restaurantId);
                     restaurant = optionalRestaurant.get();
 
-
             %>
 
                  <div class="list-group-item list-group-item-action flex-column align-items-start">

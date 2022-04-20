@@ -1,5 +1,6 @@
 package com.svalero.restaurant.dao;
 
+import com.svalero.restaurant.domain.Dish;
 import com.svalero.restaurant.domain.Restaurant;
 import com.svalero.restaurant.exception.RestaurantAlreadyExistException;
 
@@ -112,10 +113,15 @@ public class RestaurantDao {
 
 
     public Optional<Restaurant> findById(String id) throws SQLException {
+        Restaurant restaurant = null;
+        if (id == null) {
+            restaurant = new Restaurant("No existe", "", "");
+        return Optional.ofNullable(restaurant);
+        }
+        String sql = "SELECT * FROM restaurants WHERE id_restaurant = ?";
         Integer id_int = Integer.parseInt(id);
 
-        String sql = "SELECT * FROM restaurants WHERE id_restaurant = ?";
-        Restaurant restaurant = null;
+
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id_int);
