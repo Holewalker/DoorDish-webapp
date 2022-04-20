@@ -48,7 +48,7 @@ BEGIN
 END;
 /
 
-EXECUTE PLATOS_SINSERVIR();
+EXECUTE PLATOS_SINSERVIR;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 -----Crear una consulta que muestre un listado de registros que contengan una determinada cadena en un campo de tu elección.
