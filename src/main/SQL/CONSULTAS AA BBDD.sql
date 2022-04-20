@@ -65,9 +65,13 @@ EXECUTE LISTADO_PLATOS_NOMBRE('HUE');
 -----Para finalizar, crea un procedimiento almacenado que realice el borrado de parte de la información almacenada en una tabla secundaria, donde el/los criterios de borrado se obtengan de una tabla principal.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
-CREATE OR REPLACE PROCEDURE ELIMINAR_PLATO (IN_DNAME IN VARCHAR) AS
+CREATE OR REPLACE PROCEDURE ELIMINAR_PLATOS (IN_RESTAURANTNAME IN VARCHAR) AS
 BEGIN
-    DELETE FROM DISHES WHERE DNAME = IN_DNAME;
+    DELETE FROM (
+    SELECT * FROM DISHES
+    LEFT OUTER JOIN RESTAURANTS ON DISHES.ID_RESTAURANT = RESTAURANTS.ID_RESTAURANT
+    WHERE UPPER(RESTAURANTS.NAME)=UPPER(IN_RESTAURANTNAME)
+    );
     COMMIT;
 EXCEPTION
     WHEN OTHERS THEN 
@@ -75,5 +79,5 @@ EXCEPTION
 END;
 /
 
-EXECUTE ELIMINAR_PLATO('Lentejas');
+EXECUTE ELIMINAR_PLATOS('La alacena');
 
