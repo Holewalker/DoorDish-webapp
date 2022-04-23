@@ -20,6 +20,7 @@
                 <ul>
                     <li><a href="/restaurant/Dishes.jsp">Ver Platos</a></li>
                     <li><a href="/restaurant/searchdish.jsp">Buscar Platos</a></li>
+                    <li><a href="/restaurant/restaurants.jsp">Ver Restaurantes</a></li>
                                        <%
             if ((currentUser != null) && (currentUser.getRole().equals("DEV"))) {
         %>

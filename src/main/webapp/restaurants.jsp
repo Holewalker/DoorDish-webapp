@@ -26,36 +26,24 @@
         <h2>Listado de Platos</h2>
         <div class="list-group">
             <%
+
                 Database database = new Database();
-                DishDao dishDao = new DishDao(database.getConnection());
                 RestaurantDao restaurantDao = new RestaurantDao(database.getConnection());
 
                 try {
-                    ArrayList<Dish> dishes = dishDao.findAll();
+                    ArrayList<Restaurant> restaurants = restaurantDao.findAll();
 
-                    for (Dish dish : dishes) {
-                    String restaurantId = dish.getRestaurant();
-                    Restaurant restaurant = null;
-                    Optional<Restaurant> optionalRestaurant = restaurantDao.findById(restaurantId);
-                    restaurant = optionalRestaurant.get();
+                    for (Restaurant restaurant : restaurants) {
 
             %>
 
                  <div class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <a target="_blank" href="dish.jsp?id_dish=<%= dish.getId() %>">
-                            <h5 class="mb-1"> <%= dish.getName() %></h5>
-                                <% if ((currentUser != null) && (currentUser.getRole().equals("DEV"))) { %>
-                                    <small>
-                                        <a target="_blank" href="delete-dish?id=<%= dish.getId() %>" class="btn btn-outline-danger">Eliminar</a>
-                                    </small>
-                                <% } %>
+                        <a target="_blank" href="restaurant.jsp?id_restaurant=<%= restaurant.getId() %>">
+                            <h5 class="mb-1"> <%= restaurant.getName() %></h5>
                         </a>
                     </div>
-                    <small>
-                        <a target="_blank" href="restaurant.jsp?id_restaurant=<%= dish.getRestaurant() %>"><%= restaurant.getName()%></a>
-                    </small>
-            </div>
+                   </div>
             <%
                     }
                } catch (SQLException sqle) {
