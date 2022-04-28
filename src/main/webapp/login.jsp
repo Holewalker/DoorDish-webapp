@@ -49,7 +49,7 @@
     </div>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
-    <p class="mt-5 mb-3 text-muted">San Valero 2022</p>
+    <p class="mt-5 mb-3 text-muted">San Valero 2022-Daniel Gonzalez</p>
   </form>
 </main>
 
