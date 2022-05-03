@@ -31,35 +31,22 @@ EXECUTE ACTUALIZAR_PLATO('Lentejas con chorizo','Contiene carne', '10.00', 'Lent
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 -----Crear una consulta que muestre un listado agrupado de toda o parte de la  información almacenada.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
-CREATE OR REPLACE PROCEDURE LISTADO_PLATOS(IN_DTYPE IN VARCHAR) AS
-BEGIN
-    SELECT * FROM DISHES WHERE DTYPE = IN_DTYPE GROUP BY ID_RESTAURANT;
-END;
-/
-
-EXECUTE LISTADO_PLATOS('Contiene carne');
+SELECT * FROM DISHES WHERE DTYPE = IN_DTYPE GROUP BY ID_RESTAURANT;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 -----Crear una consulta que muestre, mediante una combinación externa, un listado con toda la información de una tabla principal que no tenga información relacionada en una tabla secundaria.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
-CREATE OR REPLACE PROCEDURE PLATOS_SINSERVIR() AS
-BEGIN
-    SELECT DNAME, DTYPE, PRICE FROM DISHES LEFT OUTER JOIN RESTAURANTS ON DISHES.ID_RESTAURANT = RESTAURANTS.ID_RESTAURANT WHERE DISHES.ID_RESTAURANT IS NULL;
-END;
-/
 
-EXECUTE PLATOS_SINSERVIR;
+SELECT DNAME, DTYPE, PRICE FROM RESTAURANTS RIGHT OUTER JOIN DISHES ON RESTAURANTS.ID_RESTAURANT = DISHES.ID_RESTAURANT WHERE RESTAURANTS.ID_RESTAURANT IS NULL;
+
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 -----Crear una consulta que muestre un listado de registros que contengan una determinada cadena en un campo de tu elección.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
-CREATE OR REPLACE PROCEDURE LISTADO_PLATOS_NOMBRE(STR IN VARCHAR) AS
-BEGIN
-    SELECT DNAME, DTYPE, PRICE FROM DISHES WHERE UPPER(DNAME) LIKE UPPER(STR);
-END;
-/
 
-EXECUTE LISTADO_PLATOS_NOMBRE('HUE');
+SELECT DNAME, DTYPE, PRICE FROM DISHES WHERE UPPER(DNAME) LIKE UPPER(STR);
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 -----Para finalizar, crea un procedimiento almacenado que realice el borrado de parte de la información almacenada en una tabla secundaria, donde el/los criterios de borrado se obtengan de una tabla principal.
