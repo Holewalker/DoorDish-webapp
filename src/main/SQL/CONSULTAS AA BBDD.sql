@@ -36,8 +36,8 @@ SELECT * FROM DISHES WHERE DTYPE = IN_DTYPE GROUP BY ID_RESTAURANT;
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 -----Crear una consulta que muestre, mediante una combinación externa, un listado con toda la información de una tabla principal que no tenga información relacionada en una tabla secundaria.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
-
-SELECT DNAME, DTYPE, PRICE FROM RESTAURANTS RIGHT OUTER JOIN DISHES ON RESTAURANTS.ID_RESTAURANT = DISHES.ID_RESTAURANT WHERE RESTAURANTS.ID_RESTAURANT IS NULL;
+---Antes mostrabamos platos sin restaurante, ahora mostramos restaurantes sin platos---
+SELECT RESTAURANTS.ID_RESTAURANT, RESTAURANTS.NAME, RESTAURANTS.NATION, RESTAURANTS.STARS FROM RESTAURANTS LEFT OUTER JOIN DISHES ON RESTAURANTS.ID_RESTAURANT = DISHES.ID_RESTAURANT WHERE DISHES.ID_RESTAURANT IS NULL;
 
 
 
