@@ -10,7 +10,7 @@ import java.sql.*;
 
 public class OrderDao {
 
-    private Connection connection;
+    private final Connection connection;
 
     public OrderDao(Connection connection) {
         this.connection = connection;

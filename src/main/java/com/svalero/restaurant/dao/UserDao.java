@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class UserDao {
 
-    private Connection connection;
+    private final Connection connection;
 
     public UserDao(Connection connection) {
         this.connection = connection;

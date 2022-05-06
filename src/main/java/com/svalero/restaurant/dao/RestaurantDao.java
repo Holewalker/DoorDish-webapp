@@ -1,6 +1,5 @@
 package com.svalero.restaurant.dao;
 
-import com.svalero.restaurant.domain.Dish;
 import com.svalero.restaurant.domain.Restaurant;
 import com.svalero.restaurant.exception.RestaurantAlreadyExistException;
 
@@ -13,7 +12,7 @@ import java.util.Optional;
 
 public class RestaurantDao {
 
-    private Connection connection;
+    private final Connection connection;
 
     public RestaurantDao(Connection connection) {
         this.connection = connection;

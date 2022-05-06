@@ -12,7 +12,7 @@ public class Dish {
     private String price;
 
 
-    private List<Order> orders;
+    private final List<Order> orders;
 
     public Dish() {
         orders = new ArrayList<>();

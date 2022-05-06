@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public class DishDao {
 
-    private Connection connection;
+    private final Connection connection;
 
     public DishDao(Connection connection) {
         this.connection = connection;
