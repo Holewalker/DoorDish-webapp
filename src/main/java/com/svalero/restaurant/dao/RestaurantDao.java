@@ -1,6 +1,5 @@
 package com.svalero.restaurant.dao;
 
-import com.svalero.restaurant.domain.Dish;
 import com.svalero.restaurant.domain.Restaurant;
 import com.svalero.restaurant.exception.RestaurantAlreadyExistException;
 

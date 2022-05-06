@@ -4,15 +4,15 @@ package com.svalero.restaurant.domain;
 public class Order {
 
     private String id;
-    private String id_dish;
-    private String id_restaurant;
+    private String idDish;
+    private String idRestaurant;
 
 
 
 
-    public Order(String id, String id_dish, String id_restaurant) {
-        this.id_dish = id_dish;
-        this.id_restaurant = id_restaurant;
+    public Order(String id, String idDish, String idRestaurant) {
+        this.idDish = idDish;
+        this.idRestaurant = idRestaurant;
         this.id = id;
            }
 
@@ -24,18 +24,18 @@ public class Order {
         this.id = id;
     }
 
-    public String getId_dish() {
-        return id_dish;
+    public String getIdDish() {
+        return idDish;
     }
 
-    public void setId_dish(String id_dish) {
-        this.id_dish = id_dish;
+    public void setIdDish(String idDish) {
+        this.idDish = idDish;
     }
 
-    public String getId_restaurant() {
-        return id_restaurant;
+    public String getIdRestaurant() {
+        return idRestaurant;
     }
 
-    public void setId_restaurant(String id_restaurant) {
-        this.id_restaurant = id_restaurant;
+    public void setIdRestaurant(String idRestaurant) {
+        this.idRestaurant = idRestaurant;
     }}

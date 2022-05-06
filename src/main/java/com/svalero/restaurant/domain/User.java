@@ -1,6 +1,5 @@
 package com.svalero.restaurant.domain;
 
-import java.io.Serializable;
 
 public class User{
 

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
 
-public class TestUser {
+ class TestUser {
     String name = "Daniel";
     String username = "holewalker";
     String role = "dev";
@@ -13,21 +13,21 @@ public class TestUser {
     User user = new User(name, username, "pwd", role);
 
     @Test
-    public void dishGenerationTest1() {
+     void dishGenerationTest1() {
         boolean res;
         res = Objects.equals(user.getName(), name);
         Assertions.assertTrue(res);
     }
 
     @Test
-    public void dishGenerationTest2() {
+     void dishGenerationTest2() {
         boolean res;
         res = Objects.equals(user.getUsername(), username);
         Assertions.assertTrue(res);
     }
 
     @Test
-    public void dishGenerationTest3() {
+     void dishGenerationTest3() {
         boolean res;
         res = Objects.equals(user.getRole(), role);
         Assertions.assertTrue(res);
