@@ -14,29 +14,20 @@ Order order= new Order(id, id_dish, id_restaurant);
     @Test
     public void orderGenerationTest1() {
         boolean res;
-        if (Objects.equals(order.getId_dish(), id_dish)) {
-            res = true;
-        } else
-            res = false;
+        res = Objects.equals(order.getId_dish(), id_dish);
         Assertions.assertTrue(res);
     }
 
     @Test
     public void orderGenerationTest2() {
         boolean res;
-        if (Objects.equals(order.getId_restaurant(), id_restaurant)) {
-            res = true;
-        } else
-            res = false;
+        res = Objects.equals(order.getId_restaurant(), id_restaurant);
         Assertions.assertTrue(res);
     }
     @Test
     public void orderGenerationTest3() {
         boolean res;
-        if (Objects.equals(order.getId(), id)) {
-            res = true;
-        } else
-            res = false;
+        res = Objects.equals(order.getId(), id);
         Assertions.assertTrue(res);
     }
 

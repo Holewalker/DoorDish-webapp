@@ -13,28 +13,19 @@ public class TestRestaurant {
     @Test
     public void restaurantGenerationTest1() {
         boolean res;
-        if (Objects.equals(restaurant.getName(), name)) {
-            res = true;
-        } else
-            res = false;
+        res = Objects.equals(restaurant.getName(), name);
         Assertions.assertTrue(res);
     }
     @Test
     public void restaurantGenerationTest2() {
         boolean res;
-        if (Objects.equals(restaurant.getNation(), nation)) {
-            res = true;
-        } else
-            res = false;
+        res = Objects.equals(restaurant.getNation(), nation);
         Assertions.assertTrue(res);
     }
     @Test
     public void restaurantGenerationTest3() {
         boolean res;
-        if (Objects.equals(restaurant.getStars(), stars)) {
-            res = true;
-        } else
-            res = false;
+        res = Objects.equals(restaurant.getStars(), stars);
         Assertions.assertTrue(res);
     }
 

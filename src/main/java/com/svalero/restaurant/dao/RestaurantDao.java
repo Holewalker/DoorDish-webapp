@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class RestaurantDao {
 
-    private Connection connection;
+    private final Connection connection;
 
     public RestaurantDao(Connection connection) {
         this.connection = connection;

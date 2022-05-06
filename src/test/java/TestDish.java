@@ -14,37 +14,25 @@ public class TestDish {
     @Test
     public void dishGenerationTest1() {
         boolean res;
-        if (Objects.equals(dish.getName(), name)) {
-            res = true;
-        } else
-            res = false;
+        res = Objects.equals(dish.getName(), name);
         Assertions.assertTrue(res);
     }
     @Test
     public void dishGenerationTest2() {
         boolean res;
-        if (Objects.equals(dish.getRestaurant(), restaurant)) {
-            res = true;
-        } else
-            res = false;
+        res = Objects.equals(dish.getRestaurant(), restaurant);
         Assertions.assertTrue(res);
     }
     @Test
     public void dishGenerationTest3() {
         boolean res;
-        if (Objects.equals(dish.getType(), type)) {
-            res = true;
-        } else
-            res = false;
+        res = Objects.equals(dish.getType(), type);
         Assertions.assertTrue(res);
     }
     @Test
     public void dishGenerationTest4() {
         boolean res;
-        if (Objects.equals(dish.getPrice(), price)) {
-            res = true;
-        } else
-            res = false;
+        res = Objects.equals(dish.getPrice(), price);
         Assertions.assertTrue(res);
     }
 

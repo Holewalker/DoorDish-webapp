@@ -27,7 +27,7 @@ public class AddDishServlet extends HttpServlet {
             response.sendRedirect("accesonopermitido.jsp");
         }
 
-        String name = request.getParameter("dname");       // input name="title" del formulario
+        String name = request.getParameter("dname");
         String restaurant = request.getParameter("ID_restaurant");
         String type = request.getParameter("dtype");
         String price = request.getParameter("price");
